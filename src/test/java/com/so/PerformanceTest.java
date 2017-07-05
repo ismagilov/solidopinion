@@ -13,57 +13,57 @@ public class PerformanceTest {
     @Rule
     public TestRule benchmarkRun = new BenchmarkRule();
 
-    //8.47
-    @BenchmarkOptions(warmupRounds = 0, benchmarkRounds = 1)
-    @Test
-    public void test1Round1M() {
-        Sum s = new Sum();
-
-        s.sumUsingDirectBufferAndFileChannel("huge2billions-4295016525523462715.txt", 1024 * 1024);
-    }
-
-    //8.76 9.25
+    //10.93
     @BenchmarkOptions(warmupRounds = 1, benchmarkRounds = 2)
     @Test
-    public void test1WarmUp2Rounds1M() {
+    public void testDirectBuffer1K() {
         Sum s = new Sum();
 
-        s.sumUsingDirectBufferAndFileChannel("huge2billions-4295016525523462715.txt", 1024 * 1024);
+        s.sumUsingDirectBuffer("huge2billions-4295016525523462715.txt", 1024);
     }
 
-    //9.97
-    @BenchmarkOptions(warmupRounds = 0, benchmarkRounds = 1)
-    @Test
-    public void test1Round10M() {
-        Sum s = new Sum();
-
-        s.sumUsingDirectBufferAndFileChannel("huge2billions-4295016525523462715.txt", 10 * 1024 * 1024);
-    }
-
-    //10.37
+    //10.75
     @BenchmarkOptions(warmupRounds = 1, benchmarkRounds = 2)
     @Test
-    public void test1WarmUp2Rounds10M() {
+    public void testDirectBuffer2K() {
         Sum s = new Sum();
 
-        s.sumUsingDirectBufferAndFileChannel("huge2billions-4295016525523462715.txt",10 * 1024 * 1024);
+        s.sumUsingDirectBuffer("huge2billions-4295016525523462715.txt", 2 * 1024);
     }
 
-    //8.08
-    @BenchmarkOptions(warmupRounds = 0, benchmarkRounds = 1)
-    @Test
-    public void test1Round8K() {
-        Sum s = new Sum();
-
-        s.sumUsingDirectBufferAndFileChannel("huge2billions-4295016525523462715.txt", 8 * 1024);
-    }
-
-    //6.95 9.10
+    //10.32
     @BenchmarkOptions(warmupRounds = 1, benchmarkRounds = 2)
     @Test
-    public void test1WarmUp2Rounds8K() {
+    public void testDirectBuffer1M() {
         Sum s = new Sum();
 
-        s.sumUsingDirectBufferAndFileChannel("huge2billions-4295016525523462715.txt",8 * 1024);
+        s.sumUsingDirectBuffer("huge2billions-4295016525523462715.txt", 1024 * 1024);
+    }
+
+    //11.21
+    @BenchmarkOptions(warmupRounds = 1, benchmarkRounds = 2)
+    @Test
+    public void testDirectBuffer8M() {
+        Sum s = new Sum();
+
+        s.sumUsingDirectBuffer("huge2billions-4295016525523462715.txt", 8 * 1024 * 1024);
+    }
+
+    //8.9
+    @BenchmarkOptions(warmupRounds = 1, benchmarkRounds = 2)
+    @Test
+    public void testDirectBuffer32M() {
+        Sum s = new Sum();
+
+        s.sumUsingDirectBuffer("huge2billions-4295016525523462715.txt",32 * 1024 * 1024);
+    }
+
+    //10.95
+    @BenchmarkOptions(warmupRounds = 1, benchmarkRounds = 2)
+    @Test
+    public void testDirectBuffer128M() {
+        Sum s = new Sum();
+
+        s.sumUsingDirectBuffer("huge2billions-4295016525523462715.txt", 128 * 1024 * 1024);
     }
 }
