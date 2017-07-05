@@ -2,6 +2,7 @@ package com.so;
 
 import com.carrotsearch.junitbenchmarks.BenchmarkOptions;
 import com.carrotsearch.junitbenchmarks.BenchmarkRule;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestRule;
@@ -14,6 +15,7 @@ public class PerformanceTest {
     public TestRule benchmarkRun = new BenchmarkRule();
 
     //10.93
+    @Ignore
     @BenchmarkOptions(warmupRounds = 1, benchmarkRounds = 2)
     @Test
     public void testDirectBuffer1K() {
@@ -23,6 +25,7 @@ public class PerformanceTest {
     }
 
     //10.75
+    @Ignore
     @BenchmarkOptions(warmupRounds = 1, benchmarkRounds = 2)
     @Test
     public void testDirectBuffer2K() {
@@ -32,6 +35,7 @@ public class PerformanceTest {
     }
 
     //10.32
+    @Ignore
     @BenchmarkOptions(warmupRounds = 1, benchmarkRounds = 2)
     @Test
     public void testDirectBuffer1M() {
@@ -41,6 +45,7 @@ public class PerformanceTest {
     }
 
     //11.21
+    @Ignore
     @BenchmarkOptions(warmupRounds = 1, benchmarkRounds = 2)
     @Test
     public void testDirectBuffer8M() {
@@ -50,6 +55,7 @@ public class PerformanceTest {
     }
 
     //8.9
+    @Ignore
     @BenchmarkOptions(warmupRounds = 1, benchmarkRounds = 2)
     @Test
     public void testDirectBuffer32M() {
@@ -59,6 +65,7 @@ public class PerformanceTest {
     }
 
     //10.95
+    @Ignore
     @BenchmarkOptions(warmupRounds = 1, benchmarkRounds = 2)
     @Test
     public void testDirectBuffer128M() {
