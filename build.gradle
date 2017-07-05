@@ -21,10 +21,13 @@ repositories {
 
 dependencies {
     // This dependency is found on compile classpath of this component and consumers.
-    compile 'com.google.guava:guava:21.0'
 
     // Use JUnit test framework
-    testCompile 'junit:junit:4.12'
+    testCompile (
+            ['junit:junit:4.12',
+            'com.google.guava:guava:22.0',
+            'com.carrotsearch:junit-benchmarks:0.7.2']
+    )
 }
 
 // Define the main class for the application
